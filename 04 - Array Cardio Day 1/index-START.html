@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪</title>
 </head>
+
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
@@ -34,7 +36,7 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
+
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
@@ -52,14 +54,28 @@
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    let peopleSorted = people.sort((name1, name2) => {
+      return (name1.substring(name1.lastIndexOf(', ')) >= name2.substring(name2.lastIndexOf(', '))) ? 1 : -1;
+    })
+
+    // console.log(peopleSorted)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+    let vehicleMap = {};
 
+    for (let i = 0; i < data.length; i++) {
+      if (!vehicleMap[data[i]]) vehicleMap[data[i]] = 0;
+      vehicleMap[data[i]]++;
+    }
+
+    for (let key in vehicleMap) {
+      console.log(key + ': ' + vehicleMap[key]);
+    }
   </script>
 </body>
+
 </html>
